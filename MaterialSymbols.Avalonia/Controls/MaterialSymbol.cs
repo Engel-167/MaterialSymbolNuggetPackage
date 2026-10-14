@@ -22,22 +22,13 @@ public class MaterialSymbol : Control
     public static readonly StyledProperty<IBrush?> ForegroundProperty =
         AvaloniaProperty.Register<MaterialSymbol, IBrush?>(nameof(Foreground), null);
 
-    private readonly Viewbox _viewbox;
     private readonly PathIcon _pathIcon;
 
     public MaterialSymbol()
     {
         _pathIcon = new PathIcon();
-        
-        _viewbox = new Viewbox
-        {
-            Child = _pathIcon,
-            Stretch = Stretch.Uniform,
-            StretchDirection = StretchDirection.Both
-        };
-        
-        VisualChildren.Add(_viewbox);
-        LogicalChildren.Add(_viewbox);
+        VisualChildren.Add(_pathIcon);
+        LogicalChildren.Add(_pathIcon);
         
         UpdateGeometry();
         UpdateForeground();
@@ -142,18 +133,19 @@ public class MaterialSymbol : Control
             double.IsNaN(Height) ? 24 : Height
         );
         
+        // Constrain to available size
         desiredSize = new Size(
             Math.Min(desiredSize.Width, availableSize.Width),
             Math.Min(desiredSize.Height, availableSize.Height)
         );
         
-        _viewbox.Measure(desiredSize);
+        _pathIcon.Measure(desiredSize);
         return desiredSize;
     }
 
     protected override Size ArrangeOverride(Size finalSize)
     {
-        _viewbox.Arrange(new Rect(finalSize));
+        _pathIcon.Arrange(new Rect(finalSize));
         return finalSize;
     }
 }
