@@ -1,0 +1,121 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ms="https://github.com/materialsymbols/avalonia"
+        x:Class="MaterialSymbols.Avalonia.Demo.Views.MainWindow"
+        Title="Material Symbols Demo"
+        Width="1200"
+        Height="800">
+    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="20" Spacing="10">
+            <TextBlock Text="Material Symbols for Avalonia" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="Demostración de iconos Material Symbols con soporte para w200 y w400" />
+        </StackPanel>
+
+        <ScrollViewer>
+            <StackPanel Margin="20" Spacing="20">
+                
+                <GroupBox Header="Uso Básico">
+                    <StackPanel Margin="10" Spacing="20">
+                        <WrapPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="home" Weight="W200" Width="48" Height="48" />
+                                <TextBlock Text="home (w200)" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="home" Weight="W400" Width="48" Height="48" />
+                                <TextBlock Text="home (w400)" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="favorite" Filled="True" Width="48" Height="48" Foreground="Red" />
+                                <TextBlock Text="favorite (filled)" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="grocery_store" Weight="W200" Width="48" Height="48" />
+                                <TextBlock Text="grocery_store" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Diferentes Estilos">
+                    <StackPanel Margin="10" Spacing="20">
+                        <WrapPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="settings" Style="Outlined" Width="48" Height="48" />
+                                <TextBlock Text="Outlined" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="settings" Style="Rounded" Width="48" Height="48" />
+                                <TextBlock Text="Rounded" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <ms:MaterialSymbol Icon="settings" Style="Sharp" Width="48" Height="48" />
+                                <TextBlock Text="Sharp" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Colores Personalizados">
+                    <StackPanel Margin="10" Spacing="20">
+                        <WrapPanel>
+                            <ms:MaterialSymbol Icon="star" Width="48" Height="48" Foreground="Gold" Margin="10" />
+                            <ms:MaterialSymbol Icon="check_circle" Width="48" Height="48" Foreground="Green" Margin="10" />
+                            <ms:MaterialSymbol Icon="error" Width="48" Height="48" Foreground="Red" Margin="10" />
+                            <ms:MaterialSymbol Icon="info" Width="48" Height="48" Foreground="Blue" Margin="10" />
+                            <ms:MaterialSymbol Icon="warning" Width="48" Height="48" Foreground="Orange" Margin="10" />
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Iconos Populares">
+                    <StackPanel Margin="10" Spacing="20">
+                        <WrapPanel>
+                            <ms:MaterialSymbol Icon="search" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="menu" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="close" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="add" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="delete" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="edit" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="save" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="download" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="upload" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="share" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="print" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="email" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="phone" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="person" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="group" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="shopping_cart" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="payment" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="local_shipping" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="inventory" Width="32" Height="32" Margin="7" />
+                            <ms:MaterialSymbol Icon="dashboard" Width="32" Height="32" Margin="7" />
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="Uso con PathIcon (Extensión de Marcado)">
+                    <StackPanel Margin="10" Spacing="20">
+                        <WrapPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <PathIcon Data="{ms:MaterialSymbol home}" Width="48" Height="48" />
+                                <TextBlock Text="home" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <PathIcon Data="{ms:MaterialSymbol favorite, Filled=True}" Width="48" Height="48" Foreground="Red" />
+                                <TextBlock Text="favorite (filled)" HorizontalAlignment="Center" />
+                            </StackPanel>
+                            <StackPanel Spacing="5" Margin="10">
+                                <PathIcon Data="{ms:MaterialSymbol settings, Style=Rounded}" Width="48" Height="48" />
+                                <TextBlock Text="settings (rounded)" HorizontalAlignment="Center" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

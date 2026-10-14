@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MaterialSymbols.Avalonia.Demo/MaterialSymbols.Avalonia.Demo.csproj" />
+  <Project Path="MaterialSymbols.Avalonia.Generator/MaterialSymbols.Avalonia.Generator.csproj" />
+  <Project Path="MaterialSymbols.Avalonia/MaterialSymbols.Avalonia.csproj" />
+</Solution>

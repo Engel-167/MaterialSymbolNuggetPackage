@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    
+    <PackageId>MaterialSymbols.Avalonia</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Material Symbols Avalonia Contributors</Authors>
+    <Description>Material Symbols icons for Avalonia UI with support for w200 and w400 weights, multiple styles (outlined, rounded, sharp), and theme-aware coloring.</Description>
+    <PackageTags>avalonia;material-symbols;icons;material-design;ui</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources/Symbols/**/*.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources/Symbols/**/*.cs" />
+  </ItemGroup>
+
+</Project>
