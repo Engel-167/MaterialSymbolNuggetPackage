@@ -1,7 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Primitives;
 using Avalonia.Media;
+using System;
 
 namespace MaterialSymbols.Avalonia.Controls;
 
@@ -22,13 +22,22 @@ public class MaterialSymbol : Control
     public static readonly StyledProperty<IBrush?> ForegroundProperty =
         AvaloniaProperty.Register<MaterialSymbol, IBrush?>(nameof(Foreground), null);
 
+    private readonly Viewbox _viewbox;
     private readonly PathIcon _pathIcon;
 
     public MaterialSymbol()
     {
         _pathIcon = new PathIcon();
-        VisualChildren.Add(_pathIcon);
-        LogicalChildren.Add(_pathIcon);
+        
+        _viewbox = new Viewbox
+        {
+            Child = _pathIcon,
+            Stretch = Stretch.Uniform,
+            StretchDirection = StretchDirection.Both
+        };
+        
+        VisualChildren.Add(_viewbox);
+        LogicalChildren.Add(_viewbox);
         
         UpdateGeometry();
         UpdateForeground();
@@ -128,14 +137,23 @@ public class MaterialSymbol : Control
 
     protected override Size MeasureOverride(Size availableSize)
     {
-        var size = new Size(24, 24);
-        _pathIcon.Measure(availableSize);
-        return size;
+        var desiredSize = new Size(
+            double.IsNaN(Width) ? 24 : Width,
+            double.IsNaN(Height) ? 24 : Height
+        );
+        
+        desiredSize = new Size(
+            Math.Min(desiredSize.Width, availableSize.Width),
+            Math.Min(desiredSize.Height, availableSize.Height)
+        );
+        
+        _viewbox.Measure(desiredSize);
+        return desiredSize;
     }
 
     protected override Size ArrangeOverride(Size finalSize)
     {
-        _pathIcon.Arrange(new Rect(finalSize));
+        _viewbox.Arrange(new Rect(finalSize));
         return finalSize;
     }
 }
